@@ -1,0 +1,80 @@
+<mvc:View controllerName="demo.sap.msgraph.controller.View" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:layout="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="Products">
+				<headerContent>
+					<Button icon="sap-icon://person-placeholder" text="{= ${session>/givenName} === undefined ? 'Login' : 'Logout ' + ${session>/givenName} }" press="onSwitchSession"/>
+				</headerContent>
+				<content>
+					<List noDataText="No products found" items="{/SEPMRA_C_PD_Product}">
+						<StandardListItem type="Navigation" title="{Name}" description="{ProductCategory}" press="onProductClick"/>
+					</List>
+				</content>
+			</Page>
+			<Page id="details" title="Details" navButtonPress="onNavButtonPress" showNavButton="true">
+				<f:SimpleForm columnsM="1" title="title" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
+					<f:content>
+						<Label text="Image" width="100%">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Image src="{ProductPictureURL}" densityAware="false" width="250px" alt="productPicture">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Image>
+						<Label text="Product ID" width="100%">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+
+						<Link press="onPressLink" enabled="{= !!${session>/givenName} }" text="{Product}"/>
+						<Label text=" Name">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Link press="onPressLink" enabled="{= !!${session>/givenName} }" text="{Name}"/>
+						<Label text="ProductCategory">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Link press="onPressLink" enabled="{= !!${session>/givenName} }" text="{ProductCategory}"/>
+						<Label text="Original Language">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Link press="onPressLink" enabled="{= !!${session>/givenName} }" text="{OriginalLanguage}"/>
+						<Label text="Price">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Text text="{Price}"/>
+						<Label text="Currency">
+							<layoutData>
+								<layout:GridData span="L4 M4"/>
+							</layoutData>
+						</Label>
+						<Text text="{Currency}"/>
+					</f:content>
+				</f:SimpleForm>
+
+			</Page>
+			<Page id="results" title="Results" navButtonPress="onNavButtonPress" showNavButton="true">
+				<List noDataText="No emails found" items="{msData>/value}">
+					<FeedListItem sender="{msData>subject}" showIcon="false" info="{= ${msData>sender/emailAddress/address} + ' ('+${msData>sender/emailAddress/name} +')'}" timestamp="{ path : 'msData>createdDateTime', type : 'sap.ui.model.type.DateTime', formatOptions : { source : { UTC: true, pattern : 'yyyy-MM-dd\'T\'hh\':\'mm\':\'ss\'Z\'' }, style: 'full', relative: true } }" text="&lt;br/&gt; {msData>bodyPreview}" senderPress="onOpenEmail" convertLinksToAnchorTags="All"></FeedListItem>
+				</List>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

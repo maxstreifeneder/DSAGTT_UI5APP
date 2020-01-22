@@ -1,17 +1,15 @@
 {
   "welcomeFile": "/ui/index.html",
   "authenticationMethod": "none",
-  "logout": {
-    "logoutEndpoint": "/do/logout"
-  },
   "routes": [
     {
       "source": "^/ui/(.*)$",
       "target": "$1",
       "localDir": "webapp"
-    },{
-	  "source": "^/sap/(.*)",
-	  "destination": "SAP_Gateway"
-	}
+    },
+    {
+      "source": "^/sap/(.*)",
+      "destination": "SAP_Gateway"
+    }
   ]
 }
