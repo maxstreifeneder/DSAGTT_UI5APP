@@ -1,6 +1,6 @@
 ID: msgraph-demo
 _schema-version: "3.1"
-version: 3.0.3
+version: 4.0.0
 
 modules:
    - name: msgraph-ui
