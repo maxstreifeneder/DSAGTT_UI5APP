@@ -1,18 +1,13 @@
 {
 	"_version": "1.8.0",
 	"sap.app": {
-		"id": "con.sap.ui",
+		"id": "demo.sap.msgraph",
 		"type": "application",
-		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"sourceTemplate": {
-			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
-			"version": "1.40.12"
-		},
+		"title": "SAP x Microsoft Graph",
+		"description": "Demo to display the Microsoft Graph API usage from an SAPUI5 web app.",
 		"dataSources": {
 			"SEPMRA_PROD_MAN": {
 				"uri": "/sap/opu/odata/sap/SEPMRA_PROD_MAN/",
@@ -24,7 +19,6 @@
 			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -43,25 +37,19 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize"
-
 		]
 	},
-
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "con.sap.ui.view.View1",
+			"viewName": "demo.sap.msgraph.view.View",
 			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.38.34",
+			"minUI5Version": "1.60.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.ui.layout": {},
-				"sap.ushell": {},
-				"sap.collaboration": {},
-				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -69,12 +57,6 @@
 			"cozy": true
 		},
 		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "con.sap.ui.i18n.i18n"
-				}
-			},
 			"": {
 				"uri": "/sap/opu/odata/sap/SEPMRA_PROD_MAN/",
 				"type": "sap.ui.model.odata.v2.ODataModel",
@@ -92,32 +74,31 @@
 				"preload": false
 			}
 		},
-		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
-		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "con.sap.ui.view",
+				"viewPath": "demo.sap.msgraph.view",
 				"controlAggregation": "pages",
 				"controlId": "idAppControl",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "RouteView1",
-				"pattern": "RouteView1",
-				"target": ["TargetView1"]
-			}],
+			"routes": [
+				{
+					"name": "RouteView",
+					"pattern": "RouteView",
+					"target": [
+						"TargetView"
+					]
+				}
+			],
 			"targets": {
-				"TargetView1": {
+				"TargetView": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewName": "View1"
+					"viewName": "View"
 				}
 			}
 		}

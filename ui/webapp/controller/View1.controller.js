@@ -1,9 +1,9 @@
-/* global msalconfig, Msal */
-sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/model/json/JSONModel", "con/sap/ui/libs/msal"],
+/* global Msal */
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/model/json/JSONModel", "demo/sap/msgraph/libs/msal"],
 	function (Controller, MessageToast, JSONModel, msal) {
 		"use strict";
 
-		return Controller.extend("con.sap.ui.controller.View1", {
+		return Controller.extend("demo.sap.msgraph.controller.View", {
 
 			msalconfig: {
 				clientID: "59140526-7c63-4d3c-b507-cfe065ef2f99",

@@ -1,4 +1,4 @@
-<mvc:View controllerName="con.sap.ui.controller.View1" 
+<mvc:View controllerName="demo.sap.msgraph.controller.View" 
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	xmlns:f="sap.ui.layout.form" 
 	xmlns:layout="sap.ui.layout" 
