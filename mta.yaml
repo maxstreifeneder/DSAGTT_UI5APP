@@ -4,13 +4,11 @@ version: 3.0.3
 
 modules:
    - name: msgraph-ui
-     type: html5
+     type: approuter.nodejs
      path: ui
      parameters:
         disk-quota: 256M
         memory: 256M
-     build-parameters:
-        builder: grunt
      requires:
         - name: uaa_msgraphintegration
         - name: dest_es5
