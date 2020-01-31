@@ -8,7 +8,7 @@
 		<pages>
 			<Page title="Products">
 				<headerContent>
-					<Button icon="sap-icon://person-placeholder" text="{= ${session>/givenName} === undefined ? 'Login' : 'Logout ' + ${session>/givenName} }" press="onSwitchSession"/>
+					<Button icon="sap-icon://person-placeholder" text="Logout" visible="{= !!${session>/userPrincipalName} }" press="onLogout"/>
 				</headerContent>
 				<content>
 					<List noDataText="No products found" items="{/SEPMRA_C_PD_Product}">
